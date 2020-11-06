@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageConsole\\ClubFromageConsole.csproj": {}
+    "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageConsole\\ClubFromageConsole.csproj": {}
   },
   "projects": {
-    "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageConsole\\ClubFromageConsole.csproj": {
+    "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageConsole\\ClubFromageConsole.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageConsole\\ClubFromageConsole.csproj",
+        "projectUniqueName": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageConsole\\ClubFromageConsole.csproj",
         "projectName": "ClubFromageConsole",
-        "projectPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageConsole\\ClubFromageConsole.csproj",
+        "projectPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageConsole\\ClubFromageConsole.csproj",
         "packagesPath": "C:\\Users\\SIO2\\.nuget\\packages\\",
-        "outputPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageConsole\\obj\\",
+        "outputPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageConsole\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -32,11 +32,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj": {
-                "projectPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj"
+              "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj": {
+                "projectPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj"
               },
-              "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj": {
-                "projectPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj"
+              "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj": {
+                "projectPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj"
               }
             }
           }
@@ -81,14 +81,14 @@
         }
       }
     },
-    "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj": {
+    "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj",
+        "projectUniqueName": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj",
         "projectName": "ClubFromageWpf",
-        "projectPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj",
+        "projectPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj",
         "packagesPath": "C:\\Users\\SIO2\\.nuget\\packages\\",
-        "outputPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\obj\\",
+        "outputPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -151,14 +151,14 @@
         }
       }
     },
-    "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj": {
+    "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj",
+        "projectUniqueName": "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj",
         "projectName": "ModelLayer",
-        "projectPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj",
+        "projectPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj",
         "packagesPath": "C:\\Users\\SIO2\\.nuget\\packages\\",
-        "outputPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\obj\\",
+        "outputPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

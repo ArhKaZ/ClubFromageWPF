@@ -13,79 +13,71 @@ using System.Data;
 namespace Model.data
 {
 
-    public class daoPays
+    public class DaoPays
     {
-        private DBAL _mydbal;
-
-
-        public daoPays(DBAL BDD)
+        private DBAL mydbal;
+        public DaoPays(DBAL undbal)
         {
-
-            _mydbal = BDD;
+            mydbal = undbal;
         }
 
-        public void Insert(Pays Unpays) //insérer une ligne
-
+        public void InsertPays(Pays unPays)
         {
-            Console.WriteLine("INSERT INTO pays (id,nom) values (" + Unpays.Id + ", '" + Unpays.Nom + "');");
-            _mydbal.Insert("INSERT INTO pays (id,nom) values (" + Unpays.Id + ", '" + Unpays.Nom.Replace("'", "''") + "');");
-
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values["id"] = unPays.Id.ToString();
+            values["nom"] = "'" + unPays.Nom.Replace("'", "\\'") + "'";
+            mydbal.Insert("pays", values);
         }
 
-        public void Update(Pays Unpays)// mettre à jour une ligne
+        public void UpdatePays(Pays unPays)
         {
-            _mydbal.Update("UPDATE pays set id = " + Unpays.Id + ", nom = '" + Unpays.Nom + "' where  id = " + Unpays.Id + " ;"); ;
-
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values["Nom"] = "'" + unPays.Nom.Replace("'", "\\'") + "'";
+            mydbal.Update("pays", values, "Id = " + unPays.Id);
         }
 
-        public void Delete(Pays Unpays) //supprimer une ligne
+        public void DeletePays(Pays unPays)
         {
-            _mydbal.Delete("DELETE FROM pays where id = " + Unpays.Id + " ;");
-
+            mydbal.Delete("pays", "Id = " + unPays.Id);
         }
-        //CSVHelper
-        public void MainCSV()
+
+        public void insertfile(string path, string delimiter)
         {
             using (var reader = new StreamReader("pays.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                csv.Configuration.Delimiter = ";";
+                csv.Configuration.Delimiter = delimiter;
                 csv.Configuration.PrepareHeaderForMatch = (string header, int index) => header.ToLower();
-                //var records = csv.GetRecords<Pays>();
-                var record = new Pays();
-                var records = csv.EnumerateRecords(record);
 
-                foreach (var item in records)
+                Pays record = new Pays();
+                var records = csv.EnumerateRecords(record);
+                foreach (Pays r in records)
                 {
-                    this.Insert(item);
+                    this.InsertPays(r);
                 }
             }
         }
+
         public List<Pays> SelectAll()
         {
-            List<Pays> lePays = new List<Pays>();
-            foreach (DataRow DataR in _mydbal.SelectALL("pays").Rows)
+            List<Pays> lesPays = new List<Pays>();
+            foreach (DataRow dr in mydbal.SelectAll("Pays").Rows)
             {
-                Console.WriteLine(DataR["id"] + " " + DataR["nom"]);
-                lePays.Add(new Pays((int)DataR["id"],(string) DataR["nom"]));
-                Console.WriteLine("ajouter");
+                lesPays.Add(new Pays((int)dr["id"], (string)dr["nom"]));
             }
-            return lePays;
+            return lesPays;
         }
-
-        public Pays selectByName(string UnPays)
+        public Pays SelectByName(string nom)
         {
-            DataRow dr = _mydbal.SelectByField("pays", "nom like '" + UnPays + "'").Rows[0];
-            return new Pays((int)dr["id"],(string)dr["nom"]);
-        }
-
-        public Pays selectByID(int IDPays)
-        {
-            DataRow dr = _mydbal.SelectByID("pays",IDPays );
+            DataRow dr = mydbal.SelectByfield("Pays", "nom like '" + nom + "'").Rows[0];
             return new Pays((int)dr["id"], (string)dr["nom"]);
         }
 
-
+        public Pays SelectById(int id)
+        {
+            DataRow dr = mydbal.DataRowSelectById("Pays", id);
+            return new Pays((int)dr["id"], (string)dr["nom"]);
+        }
 
     }
 }

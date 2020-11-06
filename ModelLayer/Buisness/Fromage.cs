@@ -5,30 +5,29 @@ namespace Model.buisness
     public class Fromage
     {
         private int _id;
-        private Pays _idpays;
+        private Pays _pays_origine_id;
         private string _nom;
-        private DateTime _DateCreation;
+        private DateTime _creation;
         private string _image;
 
-
-
-        public Fromage(int unID, Pays Unpays, string UnNom, DateTime uneDate, string UneImage)
+        public Fromage(int id, Pays pays_origine_id, string nom, DateTime creation, string image)
         {
-            _id = unID;
-            _idpays = Unpays;
-            _nom = UnNom;
-            _DateCreation = uneDate;
-            _image = UneImage;
+            this._id = id;
+            this._pays_origine_id = pays_origine_id;
+            this._nom = nom;
+            this._creation = creation;
+            this._image = image;
         }
         public Fromage()
         {
 
+
         }
 
         public int Id { get => _id; set => _id = value; }
-        public Pays Idpays { get => _idpays; set => _idpays = value; }
+        public Pays Pays_origine_id { get => _pays_origine_id; set => _pays_origine_id = value; }
         public string Nom { get => _nom; set => _nom = value; }
-        public DateTime Creation { get => _DateCreation; set => _DateCreation = value; }
+        public DateTime Creation { get => _creation; set => _creation = value; }
         public string Image { get => _image; set => _image = value; }
     }
 }

@@ -29,3 +29,34 @@ D:\Dimitri DEFRESNE\ClubFromageConsole\bin\Debug\netcoreapp3.1\ModelLayer.pdb
 D:\Dimitri DEFRESNE\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.dll
 D:\Dimitri DEFRESNE\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.pdb
 D:\Dimitri DEFRESNE\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.genruntimeconfig.cache
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageWpf.exe
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageConsole.exe
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageConsole.deps.json
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageConsole.runtimeconfig.json
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageConsole.runtimeconfig.dev.json
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageConsole.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageConsole.pdb
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\CsvHelper.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\MySql.Data.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageWpf.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ModelLayer.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ClubFromageWpf.pdb
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\bin\Debug\netcoreapp3.1\ModelLayer.pdb
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.csprojAssemblyReference.cache
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.AssemblyInfoInputs.cache
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.AssemblyInfo.cs
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.csproj.CoreCompileInputs.cache
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.csproj.CopyComplete
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.dll
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.pdb
+D:\SylvainLuiset\ClubFromage_APP\ClubFromageConsole\obj\Debug\netcoreapp3.1\ClubFromageConsole.genruntimeconfig.cache

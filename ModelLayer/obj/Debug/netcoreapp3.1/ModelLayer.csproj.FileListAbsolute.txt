@@ -7,3 +7,12 @@ D:\Dimitri DEFRESNE\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.csproj.CoreCom
 D:\Dimitri DEFRESNE\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.pdb
 D:\Dimitri DEFRESNE\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.dll
 D:\Dimitri DEFRESNE\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.pdb
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.deps.json
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.dll
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.pdb
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.csprojAssemblyReference.cache
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.AssemblyInfoInputs.cache
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.AssemblyInfo.cs
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.csproj.CoreCompileInputs.cache
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.dll
+D:\SylvainLuiset\ClubFromage_APP\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.pdb

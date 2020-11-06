@@ -15,80 +15,99 @@ namespace Model.data
 {
 
 
-    public class daoFromage
+     public class DaoFromage
     {
-        private DBAL _mydbal;
-        private daoPays _myDaoPays;
-
-        public daoFromage(DBAL BDD, daoPays DaoPays)
+        private DBAL mydbal;
+        private DaoPays _daoPays;
+        public DaoFromage(DBAL undbal, DaoPays undaopays)
         {
-            _mydbal = BDD;
-            _myDaoPays = DaoPays;
+            mydbal = undbal;
+            _daoPays = undaopays;
         }
 
-        public void Insert(Fromage Unfromage)
+        public void InsertFromage(Fromage unFromage)
         {
-            Console.WriteLine("INSERT INTO fromage (id,pays_origine_id,nom,creation,image) values (" + Unfromage.Id + ", " + Unfromage.Idpays.Id + ", '" + Unfromage.Nom + "', " + Unfromage.Creation + ", '" + Unfromage.Image + "') ;");
-            _mydbal.Insert("INSERT INTO fromage (id,pays_origine_id,nom,creation,image) values (" + Unfromage.Id + ", " + Unfromage.Idpays.Id + ", '" + Unfromage.Nom + "', '" + Unfromage.Creation + "', '" + Unfromage.Image + "') ;");
-
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values["id"] = unFromage.Id.ToString();
+            values["pays_origine_id"] = unFromage.Pays_origine_id.ToString();
+            values["nom"] = "'" + unFromage.Nom.Replace("'", "\\'") + "'";
+            values["creation"] = "'" + unFromage.Creation.ToString("yyyy'-'MM'-'dd") + "'";
+            values["image"] = "'" + unFromage.Image.Replace("'", "\\'") + "'";
+            mydbal.Insert("fromage", values);
         }
 
-        public void Update(Fromage UnFromage)
+        public void UpdateFromage(Fromage unFromage)
         {
-            _mydbal.Insert("UPDATE fromage set id = " + UnFromage.Id + ", id_pays_origin = " + UnFromage.Idpays.Id + ", nom = " + UnFromage.Nom + ",creation = '" + UnFromage.Creation + "', image = " + UnFromage.Image + " Where id = " + UnFromage.Id + " ;");
-
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values["pays_origine_id"] = unFromage.Pays_origine_id.ToString();
+            values["nom"] = "'" + unFromage.Nom.Replace("'", "\\'") + "'";
+            values["creation"] = "'" + unFromage.Creation.ToString("yyyy'-'MM'-'dd") + "'";
+            values["image"] = "'" + unFromage.Image.Replace("'", "\\'") + "'";
+            mydbal.Update("fromage", values, "id = " + unFromage.Id);
         }
 
-        public void Delete(Fromage UnFromage)
+        public void DeleteFromage(Fromage unFromage)
         {
-            _mydbal.Insert("DELETE FROM fromage where " + UnFromage.Id + " ;");
-
+            mydbal.Delete("Fromage", "id = " + unFromage.Id);
         }
-        
+        public void insertfile(string path, string delimiter)
+        {
+            using (var reader = new StreamReader("fromage.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Configuration.Delimiter = delimiter;
+                csv.Configuration.PrepareHeaderForMatch = (string header, int index) => header.ToLower();
 
+                Fromage record = new Fromage();
+                var records = csv.EnumerateRecords(record);
+                foreach (Fromage fr in records)
+                {
+                    this.InsertFromage(fr);
+                }
+            }
+        }
         public List<Fromage> SelectAll()
         {
-            List<Fromage> lesfromage = new List<Fromage>();
-            foreach (DataRow DataR in _mydbal.SelectALL("fromage").Rows)
+            List<Fromage> lesFro = new List<Fromage>();
+            DataTable tableP = mydbal.SelectAll("Pays");
+            DataTable tableF = mydbal.SelectAll("Fromage");
+            foreach (DataRow dr in tableF.Rows)
             {
-                lesfromage.Add(new Fromage
-                    (
-                    (int)DataR["id"],
-                    _myDaoPays.selectByID((int)DataR["pays_origine_id"]),
-                    (string)DataR["nom"],
-                    (DateTime)DataR["creation"],
-                    (string)DataR["image"]
-                    )
-                    );
-
+                lesFro.Add(new Fromage(
+                    (int)dr["id"],
+                    _daoPays.SelectById((int)dr["pays_origine_id"]),
+                    (string)dr["nom"],
+                    (DateTime)dr["Creation"],
+                    (string)dr["image"]
+                    ));
             }
-
-            return lesfromage;
+            return lesFro;
         }
-        public Fromage SelectByName(string UnFromage)
+        public Fromage SelectByName(string nom)
         {
-            DataRow DataR = _mydbal.SelectByField("fromage", "nom like '" + UnFromage + "'").Rows[0];
+            DataRow dr = mydbal.SelectByfield("Fromage", "nom = '" + nom + "'").Rows[0];
             return new Fromage(
-                (int)DataR["id"],
-                _myDaoPays.selectByID((int)DataR["pays_origine_id"]),
-                (string)DataR["nom"],
-                    (DateTime)DataR["creation"],
-                    (string)DataR["image"]
-                );
+                (int)dr["id"],
+                _daoPays.SelectById((int)dr["pays_origine_id"]),
+                (string)dr["nom"],
+                (DateTime)dr["creation"],
+                (string)dr["image"])
+                ;
         }
-        public Fromage SelectByID(int IDPays)
-        {
-            DataRow DataR = _mydbal.SelectByID("fromage", IDPays);
-            return new Fromage(
-                 (int)DataR["id"],
-                 _myDaoPays.selectByID((int)DataR["pays_origine_id"]),
-                 (string)DataR["nom"],
-                     (DateTime)DataR["creation"],
-                     (string)DataR["image"]
-                 );
 
+        public Fromage SelectById(int id)
+        {
+            DataRow dr = mydbal.DataRowSelectById("Pays", id);
+            return new Fromage(
+                (int)dr["id"],
+                _daoPays.SelectById((int)dr["pays_origine_id"]),
+                (string)dr["nom"],
+                (DateTime)dr["creation"],
+                (string)dr["image"]);
         }
-        public void MainCSV()
+
+    }
+    public void CSV()
         {
             using (var reader = new StreamReader("fromages.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -101,7 +120,7 @@ namespace Model.data
 
                 foreach (var item in records)
                 {
-                    this.Insert(item);
+                    this.IN
                 }
             }
             Console.WriteLine("importation de fromage réussit");

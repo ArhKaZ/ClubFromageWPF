@@ -29,13 +29,11 @@ namespace Model.data
         private void Initialize()
         {
             server = "localhost";
-            database = "Club_Fromage";
+            database = "Clubfromages";
             uid = "root";
             password = "5MichelAnnecy";
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -49,26 +47,24 @@ namespace Model.data
             }
             catch (MySqlException ex)
             {
-                //When handling errors, you can your application's response based 
-                //on the error number.
-                //The two most common error numbers when connecting are as follows:
-                //0: Cannot connect to server.
-                //1045: Invalid user name and/or password.
+                //Déclaration des erreurs les plus fréquentes : 
+                //0: Ne peut pas se connection au serveur 
+                //1045: Username et PSWD invalide
                 switch (ex.Number)
                 {
                     case 0:
-                        Console.WriteLine("Cannot connect to server.  Contact administrator");
+                        Console.WriteLine("Impossible de se connecter au serveur. Contacter l'administrateur");
                         break;
 
                     case 1045:
-                        Console.WriteLine("Invalid username/password, please try again");
+                        Console.WriteLine("Nom d'utilisateur ou Mot de passe invalide, Veuillez recommencez");
                         break;
                 }
                 return false;
             }
         }
 
-        //Close connection
+        //Close connection 
         private bool CloseConnection()
         {
             try
@@ -83,121 +79,146 @@ namespace Model.data
             }
         }
 
-        //Insert statement
-        public void Insert(string LaRequete)
+        //ExecQuery
+        public void ExecQuery(string query)
         {
-
-
-            string query = LaRequete;
-
-            //open connection
             if (this.OpenConnection() == true)
             {
-                //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                //Execute command
                 cmd.ExecuteNonQuery();
-
-                //close connection
                 this.CloseConnection();
             }
         }
 
-        //Update statement
-        public void Update(string LaRequete)
+        //Insert statement 
+        public void Insert(string table, Dictionary<string, string> values)
         {
-            string query = LaRequete;
-
-            //Open connection
+            string insert = "INSERT INTO " + table + " Values (";
+            foreach (var val in values)
+            {
+                insert += val.Value + ",";
+            }
+            insert = insert.Substring(0, insert.Length - 1); //Enlève la dernière virgule 
+            insert += ")";
+            Console.WriteLine(insert);
+            //open connection 
             if (this.OpenConnection() == true)
             {
-                //create mysql command
+                //créer la commande et assigne la requête et la connection au constructeur
+                MySqlCommand cmd = new MySqlCommand(insert, connection);
+
+                try
+                {
+
+
+                    //Executer la commande
+                    cmd.ExecuteNonQuery();
+
+                    //Fermer la connection 
+                    this.CloseConnection();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+            }
+        }
+
+        //Update statement
+        public void Update(string table, Dictionary<string, string> values, string where)
+        {
+            string update = "UPDATE " + table + "SET";
+            foreach (var val in values)
+            {
+                update += val.Key + "=" + val.Value + ",";
+            }
+            update = update.Substring(0, update.Length - 1);
+            update += " Where " + where;
+
+            System.Console.WriteLine(update);
+            //open connection 
+            if (this.OpenConnection() == true)
+            {
+                //créer la commande
                 MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                //Assign the connection using Connection
+                //Assigner la requête en utilisant commandtext
+                cmd.CommandText = update;
+                //Assigner la connection 
                 cmd.Connection = connection;
 
-                //Execute query
+                //executer la commande 
                 cmd.ExecuteNonQuery();
 
-                //close connection
+                //ferme la connection 
                 this.CloseConnection();
             }
         }
 
         //Delete statement
-        public void Delete(string LaRequete)
+        public void Delete(string table, string where)
         {
-            string query = LaRequete;
+            string delete = "DELETE FROM " + table + " WHERE " + where;
 
             if (this.OpenConnection() == true)
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlCommand cmd = new MySqlCommand(delete, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
             }
         }
 
-        //Select statement
-        public List<string>[] Select()
+        //Select statement 
+        public List<string>[] Select(string query)
         {
-            string query = "SELECT * FROM tableinfo";
+            string select = "SELECT " + query;
 
-            //Create a list to store the result
-            List<string>[] list = new List<string>[3];
-            list[0] = new List<string>();
-            list[1] = new List<string>();
-            list[2] = new List<string>();
+            //Créer la liste pour stocker les résulats
+            List<string>[] resultat = new List<string>[2];
+            resultat[0] = new List<string>();
+            resultat[1] = new List<string>();
 
-            //Open connection
             if (this.OpenConnection() == true)
             {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
+                MySqlCommand cmd = new MySqlCommand(select, connection);
+                //Créer un data reader et execute la commande
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                //Read the data and store them in the list
+                //Lire les données et les stocker dans la liste
                 while (dataReader.Read())
                 {
-                    list[0].Add(dataReader["id"] + "");
-                    list[1].Add(dataReader["name"] + "");
-                    list[2].Add(dataReader["age"] + "");
+                    resultat[0].Add(dataReader["id"] + "");
+                    resultat[1].Add(dataReader["nom"] + "");
                 }
 
                 //close Data Reader
                 dataReader.Close();
 
-                //close Connection
                 this.CloseConnection();
 
-                //return list to be displayed
-                return list;
+                //returner la liste à afficher
+                Console.WriteLine(resultat[0]);
+                return resultat;
             }
             else
             {
-                return list;
+                return resultat;
             }
         }
 
-        //Count statement
-        public int Count()
+        //Count statement 
+        public int Count(string query)
         {
-            string query = "SELECT Count(*) FROM tableinfo";
+            string count = "SELECT Count" + query;
             int Count = -1;
 
-            //Open Connection
             if (this.OpenConnection() == true)
             {
-                //Create Mysql Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlCommand cmd = new MySqlCommand(count, connection);
 
-                //ExecuteScalar will return one value
+                //ExecuteScalar return une valeur
                 Count = int.Parse(cmd.ExecuteScalar() + "");
 
-                //close Connection
                 this.CloseConnection();
 
                 return Count;
@@ -207,6 +228,32 @@ namespace Model.data
                 return Count;
             }
         }
+
+        private DataSet SelectQuery(string query)
+        {
+            DataSet mydataset = new DataSet();
+            MySqlDataAdapter laquery = new MySqlDataAdapter(query, connection);
+            laquery.Fill(mydataset);
+            return mydataset;
+        }
+
+        public DataTable SelectAll(string table)
+        {
+            return this.SelectQuery("Select * From" + table).Tables[0];
+        }
+
+        public DataTable SelectByfield(string table, string fieldTestCondition)
+        {
+            return this.SelectQuery("select * from " + table + " where " + fieldTestCondition).Tables[0];
+        }
+
+        public DataRow DataRowSelectById(string table, int id)
+        {
+            return this.SelectQuery("select * from " + table + "where id = " + id).Tables[0].Rows[0];
+        }
+        
+
+      
 
         //Backup
         public void Backup()
@@ -301,22 +348,6 @@ namespace Model.data
             return dataset;
         }
 
-        public DataTable SelectALL(string table)
-        {
-
-            return this.RQuery("select * from " + table+";").Tables[0];
-
-        }
-
-        public DataTable SelectByField(string UneTable, string fieldTestCondition)
-        {
-            return this.RQuery("select * from " + UneTable+ " where "+fieldTestCondition+";").Tables[0];
-        }
-
-        public DataRow SelectByID(string Unetable,int UnId)
-        {
-            return this.RQuery("select * from " + Unetable + " where id=" + UnId + ";").Tables[0].Rows[0];
-        }
     }
 
 }

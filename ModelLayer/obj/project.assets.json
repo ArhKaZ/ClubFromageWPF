@@ -5478,11 +5478,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj",
+      "projectUniqueName": "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj",
       "projectName": "ModelLayer",
-      "projectPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj",
+      "projectPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\ModelLayer.csproj",
       "packagesPath": "C:\\Users\\SIO2\\.nuget\\packages\\",
-      "outputPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ModelLayer\\obj\\",
+      "outputPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

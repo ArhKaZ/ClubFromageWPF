@@ -14,7 +14,7 @@ namespace Model.data
 
             Map(m => m.Id);
             Map(m => m.Nom);
-            Map(m => m.Idpays).TypeConverter<Paysconverter<Pays>>();
+            Map(m => m.Pays_origine_id).TypeConverter<Paysconverter<Pays>>();
         }
     }
 }

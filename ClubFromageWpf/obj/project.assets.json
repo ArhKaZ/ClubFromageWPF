@@ -5478,11 +5478,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj",
+      "projectUniqueName": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj",
       "projectName": "ClubFromageWpf",
-      "projectPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj",
+      "projectPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\ClubFromageWpf.csproj",
       "packagesPath": "C:\\Users\\SIO2\\.nuget\\packages\\",
-      "outputPath": "D:\\Dimitri DEFRESNE\\ClubFromage_APP\\ClubFromageWpf\\obj\\",
+      "outputPath": "D:\\SylvainLuiset\\ClubFromage_APP\\ClubFromageWpf\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
