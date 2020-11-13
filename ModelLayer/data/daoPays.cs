@@ -41,21 +41,25 @@ namespace Model.data
             mydbal.Delete("pays", "Id = " + unPays.Id);
         }
 
-        public void insertfile(string path, string delimiter)
+        public void InsertFromCSV(string filename)
         {
-            using (var reader = new StreamReader("pays.csv"))
+            using (var reader = new StreamReader(filename))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                csv.Configuration.Delimiter = delimiter;
+                csv.Configuration.Delimiter = ";";
+                csv.Configuration.RegisterClassMap<MapFromage>();
                 csv.Configuration.PrepareHeaderForMatch = (string header, int index) => header.ToLower();
 
-                Pays record = new Pays();
-                var records = csv.EnumerateRecords(record);
+                var record = new Pays();
+                IEnumerable<Pays> records = csv.EnumerateRecords(record);
+
                 foreach (Pays r in records)
                 {
-                    this.InsertPays(r);
+                    Console.WriteLine(r.Id + "-" + r.Nom);
+                    this.InsertPays(record);
                 }
             }
+
         }
 
         public List<Pays> SelectAll()

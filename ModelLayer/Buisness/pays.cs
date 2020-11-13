@@ -23,4 +23,3 @@ namespace Model.buisness
         public string Nom { get => _nom; set => _nom = value; }
     }
 }
-}

@@ -15,7 +15,7 @@ namespace Model.data
 {
 
 
-     public class DaoFromage
+    public class DaoFromage
     {
         private DBAL mydbal;
         private DaoPays _daoPays;
@@ -106,25 +106,26 @@ namespace Model.data
                 (string)dr["image"]);
         }
 
-    }
-    public void CSV()
+
+        public void InsertFromCSV(string filename)
         {
-            using (var reader = new StreamReader("fromages.csv"))
+            using (var reader = new StreamReader(filename))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Configuration.Delimiter = ";";
+                csv.Configuration.RegisterClassMap<MapFromage>();
                 csv.Configuration.PrepareHeaderForMatch = (string header, int index) => header.ToLower();
 
                 var record = new Fromage();
-                var records = csv.EnumerateRecords(record);
+                IEnumerable<Fromage> records = csv.EnumerateRecords(record);
 
-                foreach (var item in records)
+                foreach (Fromage r in records)
                 {
-                    this.IN
+                    Console.WriteLine(r.Id + "-" + r.Nom + "-" + r.Pays_origine_id.Nom);
+                    this.InsertFromage(record);
                 }
             }
-            Console.WriteLine("importation de fromage réussit");
-        }
 
+        }
     }
 }
