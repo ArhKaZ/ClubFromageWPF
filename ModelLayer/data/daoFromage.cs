@@ -75,8 +75,8 @@ namespace Model.data
             {
                 lesFro.Add(new Fromage(
                     (int)dr["id"],
-                    _daoPays.SelectById((int)dr["pays_origine_id"]),
-                    (string)dr["nom"],
+                     (string)dr["nom"],
+                    _daoPays.SelectById((int)dr["pays_origine_id"]),                   
                     (DateTime)dr["Creation"],
                     (string)dr["image"]
                     ));
@@ -88,8 +88,8 @@ namespace Model.data
             DataRow dr = mydbal.SelectByfield("Fromage", "nom = '" + nom + "'").Rows[0];
             return new Fromage(
                 (int)dr["id"],
-                _daoPays.SelectById((int)dr["pays_origine_id"]),
                 (string)dr["nom"],
+                _daoPays.SelectById((int)dr["pays_origine_id"]),
                 (DateTime)dr["creation"],
                 (string)dr["image"])
                 ;
@@ -100,8 +100,8 @@ namespace Model.data
             DataRow dr = mydbal.DataRowSelectById("Pays", id);
             return new Fromage(
                 (int)dr["id"],
-                _daoPays.SelectById((int)dr["pays_origine_id"]),
                 (string)dr["nom"],
+                _daoPays.SelectById((int)dr["pays_origine_id"]),
                 (DateTime)dr["creation"],
                 (string)dr["image"]);
         }

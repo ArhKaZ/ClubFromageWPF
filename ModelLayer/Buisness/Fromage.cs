@@ -5,16 +5,16 @@ namespace Model.buisness
     public class Fromage
     {
         private int _id;
-        private Pays _pays_origine_id;
         private string _nom;
+        private Pays _pays_origine_id;
         private DateTime _creation;
         private string _image;
 
-        public Fromage(int id, Pays pays_origine_id, string nom, DateTime creation, string image)
+        public Fromage(int id, string nom, Pays pays_origine_id, DateTime creation, string image)
         {
             this._id = id;
-            this._pays_origine_id = pays_origine_id;
             this._nom = nom;
+            this._pays_origine_id = pays_origine_id;
             this._creation = creation;
             this._image = image;
         }

@@ -18,7 +18,8 @@ namespace ClubFromageConsole
             Console.WriteLine("Bonjour !");
             DaoPays daoP = new DaoPays(MaBDD); // nouvel instance dao avec un DBAL
             DaoFromage daoF = new DaoFromage(MaBDD, daoP);
-            daoP.InsertFromCSV()
+            //daoP.InsertFromCSV("D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\File\\pays.csv");
+            daoF.InsertFromCSV("D:\\SylvainLuiset\\ClubFromage_APP\\ModelLayer\\File\\fromages.csv");
            // daoF.MainCSV();
 
             //------------------------------------------------------------

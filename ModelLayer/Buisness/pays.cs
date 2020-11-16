@@ -15,11 +15,16 @@ namespace Model.buisness
         }
         public Pays(int id, string nom)
         {
-            _id = id;
-            _nom = nom;
+            this._id = id;
+            this._nom = nom;
         }
 
         public int Id { get => _id; set => _id = value; }
         public string Nom { get => _nom; set => _nom = value; }
+
+        public override string ToString()
+        {
+            return this._nom;
+        }
     }
 }
